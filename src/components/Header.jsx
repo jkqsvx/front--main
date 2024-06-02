@@ -34,13 +34,16 @@ import '../index.css'
 function Header() {
     return (
         <div className="_container">
-            <Navbar expand="lg" className="bg-body-tertiary navbar" style={{borderBottom: '1px solid black', width: '100%'}}>
+            <Navbar expand="lg" className="bg-body-tertiary navbar" style={{borderBottom: '1px solid black', backgroundColor: '#FFF0F5',width: '100%'}}>
                 <Container>
+                   
+                   
                     <Navbar.Brand href="/">
+
                         <h1 style={{fontFamily: 'Roboto, sans-serif'}}>GoTour</h1>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-                    <Navbar.Collapse id="basic-navbar-nav" style={{marginLeft: 400}}>
+                    <Navbar.Collapse id="basic-navbar-nav" style={{marginLeft: 500}}>
                         <Nav style={{display: 'flex', alignItems: 'center', gap: '16px'}}>
                             <Nav.Link style={{whiteSpace: 'nowrap'}} href={'/'}>Главная</Nav.Link>
                             <Nav.Link style={{whiteSpace: 'nowrap'}} href={'/about'}>О нас</Nav.Link>

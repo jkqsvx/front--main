@@ -15,6 +15,7 @@
 ._container {
 	max-width: 1200px;
 	margin: 0 auto;
+
 }
 
 /* .Modal {
@@ -38,10 +39,6 @@
 	cursor: pointer;
 }
 
-.footerLink:hover {
-	transition: .3s ease;
-	color: #fff;
-}
 footer{
 	margin-top: 60px;
 }
@@ -50,7 +47,7 @@ footer{
 .Card {
 	border-radius: 16px;
 	overflow: hidden;
-	background-color: #e1c3c3d4;
+	background-color: #FFF0F5;
 	min-width: 300px;
 	margin-bottom: 24px;
 	cursor: pointer;
@@ -134,55 +131,5 @@ footer{
 	flex: 1 1 300px; /* Распределение пространства на две колонки */
 	/* max-width: calc(50% - 20px); Ширина каждой колонки (50% минус отступы) */
 	 /* */
-	 .card-container {
-		margin-top: 20px; /* Добавляем отступ сверху */
-	  }
-	  
-	  .card {
-		background-color: #fff;
-		border-radius: 8px;
-		border: 1px solid #e0c3a2;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-		padding: 20px;
-		max-width: 300px;
-		margin: 10px;
-		flex: 1 1 300px; /* Распределение пространства на две колонки */
-		max-width: calc(50% - 20px); /* Ширина каждой колонки (50% минус отступы) */
-		text-align: center; /* Выравнивание текста по центру */
-	  }
-	  
-	  .card h2 {
-		font-size: 18px;
-		color: #8b4513;
-		margin-bottom: 10px;
-	  }
-	  
-	  .card ul {
-		list-style-type: none;
-		padding: 0;
-		text-align: left; /* Выравнивание текста в списке влево */
-	  }
-	  
-	  .card li {
-		margin-bottom: 8px;
-		text-align: left; /* Выравнивание элементов списка влево */
-		display: flex;
-		align-items: center;
-	  }
-	  
-	  .card ul li:before {
-		content: '•';
-		color: #d2691e;
-		margin-right: 8px;
-	  }
-	  
-	  .card ul li.check:before {
-		content: '✔';
-		color: #d2691e;
-	  }
-	  
-	  .card ul li.info:before {
-		content: 'ℹ️';
-		color: #d2691e;
-	  }
+
 	  

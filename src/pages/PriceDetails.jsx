@@ -9,7 +9,6 @@ const PriceDetails = () => {
   return (
     <div className="card-container">
       <Header/>
-      <h2 style={{marginBottom: '24px', marginTop: '24px', textAlign: 'center'}}>В стоимость входит</h2>
       <div className="card">
         <h2>В стоимость входит</h2>
         <ul>
@@ -23,7 +22,10 @@ const PriceDetails = () => {
           <li>Посещение скального города Чавушин</li>
           <li>Посещение Учхисар (крепость)</li>
           <li>Подземный город</li>
+  
         </ul>
+        <h2 className="price-heading">Цена: 6000$</h2>
+        
       </div>
       <div className="card">
         <h2>За дополнительную плату</h2>
@@ -35,8 +37,15 @@ const PriceDetails = () => {
           <li>Полёт на воздушном шаре</li>
           <li>Трансфер вида на воздушные шары</li>
           <li>Проживание в одноместном номере</li>
+          <li>Проживание в одноместном номере</li>
+          <li>Проживание в одноместном номере</li>
+          <li>Проживание в одноместном номере</li>
         </ul>
+       {/* <div className='price1'> */}
+       <h2 className="price-heading">Цена: 6000$</h2>
+       {/* </div> */}
       </div>
+  
       <Footer/>
     </div>
   );
