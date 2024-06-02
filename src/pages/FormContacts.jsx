@@ -1,9 +1,33 @@
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import { Form, InputGroup, Button, Modal } from 'react-bootstrap';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import { Button } from 'react-bootstrap';
+import Rating from '@mui/material/Rating';
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import SentimentDissatisfiedIcon from '@mui/icons-material/SentimentDissatisfied';
+import SentimentSatisfiedIcon from '@mui/icons-material/SentimentSatisfied';
+import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
+import SentimentVerySatisfiedIcon from '@mui/icons-material/SentimentVerySatisfied';
+import { styled } from '@mui/material/styles';
+
+const StyledRating = styled(Rating)(({ theme }) => ({
+  '& .MuiRating-iconEmpty .MuiSvgIcon-root': {
+    color: theme.palette.action.disabled,
+  },
+}));
+
+const customIcons = {
+  1: { icon: <SentimentVeryDissatisfiedIcon color="error" />, label: 'Very Dissatisfied' },
+  2: { icon: <SentimentDissatisfiedIcon color="error" />, label: 'Dissatisfied' },
+  3: { icon: <SentimentSatisfiedIcon color="warning" />, label: 'Neutral' },
+  4: { icon: <SentimentSatisfiedAltIcon color="success" />, label: 'Satisfied' },
+  5: { icon: <SentimentVerySatisfiedIcon color="success" />, label: 'Very Satisfied' },
+};
+
+function IconContainer(props) {
+  const { value, ...other } = props;
+  return <span {...other}>{customIcons[value].icon}</span>;
+}
 
 function FormContacts() {
   const [nickname, setNickname] = useState('');
@@ -11,6 +35,7 @@ function FormContacts() {
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [wishes, setWishes] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = () => {
     const data = { nickname, name, surname, email, wishes };
@@ -30,12 +55,15 @@ function FormContacts() {
         setSurname('');
         setEmail('');
         setWishes('');
+        setShowModal(true); // Показать модальное окно
       })
       .catch((error) => {
         console.error('Error:', error);
         alert('Произошла ошибка при отправке данных.');
       });
   };
+
+  const handleClose = () => setShowModal(false);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -104,7 +132,7 @@ function FormContacts() {
             as="textarea"
             aria-label="With textarea"
             value={wishes}
-            style={{resize: "none"}}
+            style={{ resize: 'none' }}
             onChange={(e) => setWishes(e.target.value)}
           />
         </InputGroup>
@@ -113,6 +141,29 @@ function FormContacts() {
         </Button>
       </div>
       <Footer />
+
+      <Modal show={showModal} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Оцените качество обслуживания</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <StyledRating
+            name="highlight-selected-only"
+            defaultValue={2}
+            IconContainerComponent={IconContainer}
+            getLabelText={(value) => customIcons[value].label}
+            highlightSelectedOnly
+          />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Закрыть
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Отправить оценку
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
